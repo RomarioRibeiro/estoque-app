@@ -1,11 +1,17 @@
 package com.romario.demo.service;
 
+import java.text.SimpleDateFormat;
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort.Direction;
 import org.springframework.stereotype.Service;
 
 import com.romario.demo.domain.Funcionario;
+import com.romario.demo.dto.FuncionarioNewDTO;
 import com.romario.demo.repositry.FuncionarioRepository;
 import com.romario.demo.service.exeption.DatalIntegrityException;
 import com.romario.demo.service.exeption.ObjectNotFoundException;
@@ -27,6 +33,11 @@ public class FuncionarioService {
 		return repo.save(obj);
 	}
 	
+	public List<Funcionario> findAll(){
+		
+		return repo.findAll();
+	}
+	
 	public Funcionario update (Funcionario obj) {
 		find(obj.getId());
 		
@@ -43,6 +54,18 @@ public class FuncionarioService {
 		}
 	
 	}
-
 	
+	
+	public Page<Funcionario> findPage(Integer page, Integer linesPerPage, String orderBy, String direction) {
+		PageRequest pageRequest = PageRequest.of(page, linesPerPage, Direction.valueOf(direction), orderBy);
+		return repo.findAll(pageRequest);
+	}
+
+	SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm");
+	
+	public Funcionario fromDTO(FuncionarioNewDTO objDto) {
+		Funcionario cli = new Funcionario(null, objDto.getNome(), objDto.getEmail(), objDto.getCpf(),null );
+	
+	return cli;
+	}
 }
