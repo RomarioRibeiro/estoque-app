@@ -11,6 +11,7 @@ import org.springframework.data.domain.Sort.Direction;
 import org.springframework.stereotype.Service;
 
 import com.romario.demo.domain.Funcionario;
+import com.romario.demo.dto.FuncionarioDTO;
 import com.romario.demo.dto.FuncionarioNewDTO;
 import com.romario.demo.repositry.FuncionarioRepository;
 import com.romario.demo.service.exeption.DatalIntegrityException;
@@ -39,9 +40,10 @@ public class FuncionarioService {
 	}
 	
 	public Funcionario update (Funcionario obj) {
-		find(obj.getId());
+	Funcionario newobj = find(obj.getId());
+		updateData(newobj, obj);
 		
-		return repo.save(obj);
+		return repo.save(newobj);
 	}
 	
 	public void  delete(Integer id) {
@@ -67,5 +69,14 @@ public class FuncionarioService {
 		Funcionario cli = new Funcionario(null, objDto.getNome(), objDto.getEmail(), objDto.getCpf(),null );
 	
 	return cli;
+	}
+	
+	private void updateData(Funcionario newobj ,Funcionario obj) {
+		newobj.setNome(obj.getNome());
+		newobj.setEmail(obj.getEmail());
+	}
+	
+	public Funcionario fromDTO(FuncionarioDTO objDto) {
+		return new  Funcionario(objDto.getId(), objDto.getNome(), objDto.getEmail(),null , null);
 	}
 }

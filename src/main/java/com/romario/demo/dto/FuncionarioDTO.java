@@ -2,14 +2,22 @@ package com.romario.demo.dto;
 
 import java.io.Serializable;
 
-import com.romario.demo.domain.Funcionario;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotEmpty;
 
+import com.romario.demo.domain.Funcionario;
+import com.romario.demo.service.validation.FuncionarioUpdate;
+
+@FuncionarioUpdate
 public class FuncionarioDTO implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 	
 	private Integer id;
 	private String nome;
+	
+	@NotEmpty(message="Preenchimento obrigatório")
+	@Email(message="Email Invalido")
 	private String email;
 	
 	public FuncionarioDTO() {

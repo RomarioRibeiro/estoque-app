@@ -100,6 +100,22 @@ public class Funcionario  implements Serializable{
 		return Objects.equals(id, other.id);
 	}
 
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		builder.append("Funcionario: ");
+		builder.append(getId());
+		builder.append(", Nome: ");
+		builder.append(getNome());
+		builder.append(", CPF: ");
+		builder.append(getCpf());
+		builder.append(", email: ");
+		builder.append(getEmail());
+		builder.append(", Data De Nacimento: ");
+		builder.append(getDataDeNasc());
+		return builder.toString();
+	}
+
 	
 	
 	
