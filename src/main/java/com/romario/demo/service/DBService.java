@@ -1,12 +1,11 @@
-package com.romario.demo;
+package com.romario.demo.service;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Arrays;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.CommandLineRunner;
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.stereotype.Service;
 
 import com.romario.demo.domain.Categoria;
 import com.romario.demo.domain.Estoque;
@@ -19,9 +18,10 @@ import com.romario.demo.repositry.FuncionarioRepository;
 import com.romario.demo.repositry.Item_EstoqueRepository;
 import com.romario.demo.repositry.ProdutoRepository;
 
-@SpringBootApplication
-public class EstoqueApplication implements CommandLineRunner {
+@Service
+public class DBService {
 
+	
 	@Autowired
 	private CategoriaRepository categoriaRepository;
 	
@@ -38,17 +38,8 @@ public class EstoqueApplication implements CommandLineRunner {
 	private Item_EstoqueRepository itemestoquerepository;
 	
 	
-	
-	public static void main(String[] args) {
-		SpringApplication.run(EstoqueApplication.class, args);
-
+	public void  instantiateTestDatabase() throws ParseException {
 		
-		
-		
-	}
-
-	@Override
-	public void run(String... args) throws Exception {
 
 		Categoria cat = new Categoria(null, "Limpeza");
 		Produto prod = new Produto(null, "Omo");		
@@ -75,7 +66,6 @@ public class EstoqueApplication implements CommandLineRunner {
 		
 		itemestoquerepository.saveAll(Arrays.asList(it1));
 		
+		
 	}
-	
-
 }
