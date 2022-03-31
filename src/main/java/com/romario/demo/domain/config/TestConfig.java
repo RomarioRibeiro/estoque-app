@@ -8,6 +8,8 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
 
 import com.romario.demo.service.DBService;
+import com.romario.demo.service.EmailService;
+import com.romario.demo.service.MockEmailService;
 
 
 @Configuration
@@ -23,5 +25,9 @@ public class TestConfig {
 	return true;	
 	}
 	
+	@Bean
+	public EmailService emailService() {
+		return new MockEmailService();
+	}
 	
 }

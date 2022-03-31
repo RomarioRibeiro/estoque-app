@@ -24,6 +24,7 @@ public class EstoqueService {
 	public Estoque inserir (Estoque obj) {
 		obj.setId(null);
 		
+		
 		return repo.save(obj);
 	}
 	
