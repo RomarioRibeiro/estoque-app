@@ -55,6 +55,7 @@ public class DBService {
 		
 		
 		Estoque est = new Estoque(null, "Insumos");
+<<<<<<< HEAD
 		Estoque est2 = new Estoque(null, "Limpeza");
 
 		
@@ -68,6 +69,18 @@ public class DBService {
 		est2.getItens().addAll(Arrays.asList(it2));
 		
 		itemestoquerepository.saveAll(Arrays.asList(it1,it2));
+=======
+
+		
+		estoqueRepository.saveAll(Arrays.asList(est));
+		
+		Item_Estoque it1 = new Item_Estoque(est, prod, 12);
+		
+		
+		est.getItens().addAll(Arrays.asList(it1));
+		
+		itemestoquerepository.saveAll(Arrays.asList(it1));
+>>>>>>> cd2ae11c67432de8942283517a93099c7e09dd7b
 		
 		
 	}

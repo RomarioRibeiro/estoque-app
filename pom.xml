@@ -28,7 +28,10 @@
 			<artifactId>mysql-connector-java</artifactId>
 		</dependency>
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> cd2ae11c67432de8942283517a93099c7e09dd7b
 		<dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-validator</artifactId>
