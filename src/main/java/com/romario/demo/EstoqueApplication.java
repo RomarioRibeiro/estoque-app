@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.scheduling.annotation.Async;
+import org.springframework.scheduling.annotation.EnableAsync;
 
 import com.romario.demo.domain.Categoria;
 import com.romario.demo.domain.Estoque;
@@ -18,7 +20,7 @@ import com.romario.demo.repositry.EstoqueRepository;
 import com.romario.demo.repositry.FuncionarioRepository;
 import com.romario.demo.repositry.Item_EstoqueRepository;
 import com.romario.demo.repositry.ProdutoRepository;
-
+@EnableAsync
 @SpringBootApplication
 public class EstoqueApplication implements CommandLineRunner {
 
@@ -59,7 +61,7 @@ public class EstoqueApplication implements CommandLineRunner {
 		
 		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm");
 		
-		Funcionario fun = new Funcionario(null, "Romario", "43003416804", "romaryjane@hotmail.com", sdf.parse("01/05/1997 22:03"));
+		Funcionario fun = new Funcionario(null, "Romario", "43003416804", "romaryjane@hotmail.com", sdf.parse("01/05/1997 22:03"),"Compra");
 		funcionarioRepository.saveAll(Arrays.asList(fun));
 		
 		

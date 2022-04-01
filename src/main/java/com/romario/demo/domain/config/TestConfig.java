@@ -8,11 +8,11 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
 
 import com.romario.demo.service.DBService;
-<<<<<<< HEAD
+//<<<<<<< HEAD
 import com.romario.demo.service.EmailService;
 import com.romario.demo.service.MockEmailService;
-=======
->>>>>>> cd2ae11c67432de8942283517a93099c7e09dd7b
+//=======
+//>>>>>>> cd2ae11c67432de8942283517a93099c7e09dd7b
 
 
 @Configuration
@@ -28,12 +28,12 @@ public class TestConfig {
 	return true;	
 	}
 	
-<<<<<<< HEAD
+//<<<<<<< HEAD
 	@Bean
 	public EmailService emailService() {
 		return new MockEmailService();
 	}
-=======
->>>>>>> cd2ae11c67432de8942283517a93099c7e09dd7b
+//=======
+//>>>>>>> cd2ae11c67432de8942283517a93099c7e09dd7b
 	
 }

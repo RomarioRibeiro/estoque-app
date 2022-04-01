@@ -5,7 +5,9 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.romario.demo.domain.Estoque;
 import com.romario.demo.domain.Produto;
+import com.romario.demo.repositry.EstoqueRepository;
 import com.romario.demo.repositry.ProdutoRepository;
 import com.romario.demo.service.exeption.DatalIntegrityException;
 import com.romario.demo.service.exeption.ObjectNotFoundException;
@@ -16,6 +18,9 @@ public class ProdutoService {
 	@Autowired
 	private ProdutoRepository repo;
 	
+	@Autowired
+	private EstoqueRepository estoqueRepository;
+	
 	public Produto find(Integer id) {
 		Optional<Produto> obj = repo.findById(id);
 		return obj.orElseThrow(() -> new ObjectNotFoundException("Objeto não encontrado! Id: " + id + ",Tipo: " + Produto.class.getName() ));
@@ -23,6 +28,8 @@ public class ProdutoService {
 	
 	public Produto inserir (Produto obj) {
 		obj.setId(null);
+		Estoque est = estoqueRepository.find(null);
+		est.getId();
 		
 		return repo.save(obj);
 	}

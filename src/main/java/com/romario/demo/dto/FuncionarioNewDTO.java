@@ -14,6 +14,7 @@ public class FuncionarioNewDTO implements Serializable{
 	private String nome;
 	private  String cpf;
 	private String email;
+	private String perfil;
 	private Date dataDeNasc;
 	
 	public FuncionarioNewDTO() {
@@ -50,6 +51,14 @@ public class FuncionarioNewDTO implements Serializable{
 
 	public void setDataDeNasc(Date dataDeNasc) {
 		this.dataDeNasc = dataDeNasc;
+	}
+
+	public String getPerfil() {
+		return perfil;
+	}
+
+	public void setPerfil(String perfil) {
+		this.perfil = perfil;
 	}
 	
 	

@@ -50,12 +50,12 @@ public class DBService {
 		
 		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm");
 		
-		Funcionario fun = new Funcionario(null, "Romario", "43003416804", "romaryjane@hotmail.com", sdf.parse("01/05/1997 22:03"));
+		Funcionario fun = new Funcionario(null, "Romario", "43003416804", "romaryjane@hotmail.com", sdf.parse("01/05/1997 22:03"),"Compra");
 		funcionarioRepository.saveAll(Arrays.asList(fun));
 		
 		
 		Estoque est = new Estoque(null, "Insumos");
-<<<<<<< HEAD
+//<<<<<<< HEAD
 		Estoque est2 = new Estoque(null, "Limpeza");
 
 		
@@ -69,18 +69,18 @@ public class DBService {
 		est2.getItens().addAll(Arrays.asList(it2));
 		
 		itemestoquerepository.saveAll(Arrays.asList(it1,it2));
-=======
+//=======
 
 		
 		estoqueRepository.saveAll(Arrays.asList(est));
 		
-		Item_Estoque it1 = new Item_Estoque(est, prod, 12);
+		Item_Estoque it11 = new Item_Estoque(est, prod, 12);
 		
 		
-		est.getItens().addAll(Arrays.asList(it1));
+		est.getItens().addAll(Arrays.asList(it11));
 		
-		itemestoquerepository.saveAll(Arrays.asList(it1));
->>>>>>> cd2ae11c67432de8942283517a93099c7e09dd7b
+		itemestoquerepository.saveAll(Arrays.asList(it11));
+//>>>>>>> cd2ae11c67432de8942283517a93099c7e09dd7b
 		
 		
 	}

@@ -15,6 +15,7 @@ public class FuncionarioDTO implements Serializable {
 	
 	private Integer id;
 	private String nome;
+	private String perfil;
 	
 	@NotEmpty(message="Preenchimento obrigatório")
 	@Email(message="Email Invalido")
@@ -28,6 +29,7 @@ public class FuncionarioDTO implements Serializable {
 		id = obj.getId();
 		nome = obj.getNome();
 		email = obj.getEmail();
+		perfil = obj.getPerfil();
 	
 	
 	}
@@ -66,4 +68,13 @@ public class FuncionarioDTO implements Serializable {
 		this.email = email;
 	}
 
+	public String getPerfil() {
+		return perfil;
+	}
+
+	public void setPerfil(String perfil) {
+		this.perfil = perfil;
+	}
+
+	
 }

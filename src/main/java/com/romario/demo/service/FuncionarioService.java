@@ -1,6 +1,7 @@
 package com.romario.demo.service;
 
 import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -30,6 +31,7 @@ public class FuncionarioService {
 	
 	public Funcionario inserir (Funcionario obj) {
 		obj.setId(null);
+		obj.setDataDeNasc(new Date(System.currentTimeMillis()));
 		
 		return repo.save(obj);
 	}
@@ -66,7 +68,7 @@ public class FuncionarioService {
 	SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm");
 	
 	public Funcionario fromDTO(FuncionarioNewDTO objDto) {
-		Funcionario cli = new Funcionario(null, objDto.getNome(), objDto.getEmail(), objDto.getCpf(),null );
+		Funcionario cli = new Funcionario(null, objDto.getNome(), objDto.getEmail(), objDto.getCpf(),null,objDto.getPerfil() );
 	
 	return cli;
 	}
@@ -77,6 +79,6 @@ public class FuncionarioService {
 	}
 	
 	public Funcionario fromDTO(FuncionarioDTO objDto) {
-		return new  Funcionario(objDto.getId(), objDto.getNome(), objDto.getEmail(),null , null);
+		return new  Funcionario(objDto.getId(), objDto.getNome(), objDto.getEmail(),null ,null, objDto.getPerfil());
 	}
 }

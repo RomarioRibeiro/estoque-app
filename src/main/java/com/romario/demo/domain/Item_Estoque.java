@@ -82,4 +82,17 @@ public class Item_Estoque implements Serializable {
 		return Objects.equals(id, other.id);
 	}
 
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		builder.append(getProduto().getNome());
+		builder.append("Produto: ");
+		builder.append(getEstoque().getDescricao());
+		builder.append(", :Descrição: ");
+		builder.append(getId());
+		return builder.toString();
+	}
+
+	
+	
 }

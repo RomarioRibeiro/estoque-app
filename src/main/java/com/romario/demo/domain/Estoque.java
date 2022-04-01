@@ -81,7 +81,15 @@ public class Estoque implements Serializable {
 		return Objects.equals(id, other.id);
 	}
 
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		builder.append(getDescricao());
+		builder.append(getId());
+		builder.append("Descrição: ");
 	
+		return builder.toString();
+	}
 	
 	
 	

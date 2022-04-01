@@ -18,6 +18,7 @@ public class Funcionario  implements Serializable{
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	private String nome;
+	private String perfil;
 	private  String cpf;
 	private String email;
 	private Date dataDeNasc;
@@ -25,17 +26,26 @@ public class Funcionario  implements Serializable{
 	
 	
 	
+	public String getPerfil() {
+		return perfil;
+	}
+
+	public void setPerfil(String perfil) {
+		this.perfil = perfil;
+	}
+
 	public Funcionario() {
 		super();
 	}
 
-	public Funcionario(Integer id, String nome, String cpf, String email, Date dataDeNasc) {
+	public Funcionario(Integer id, String nome, String cpf, String email, Date dataDeNasc, String perfil) {
 		super();
 		this.id = id;
 		this.nome = nome;
 		this.cpf = cpf;
 		this.email = email;
 		this.dataDeNasc = dataDeNasc;
+		this.perfil = perfil;
 	}
 
 	public Integer getId() {
