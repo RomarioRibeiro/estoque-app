@@ -28,6 +28,17 @@ public class Estoque implements Serializable {
 	
 	@OneToMany(mappedBy = "id.estoque")
 	private Set<Item_Estoque> itens = new HashSet<>();
+	
+	
+	public double getValor() {
+		double soma = 0.0;
+		for(Item_Estoque est : itens) {
+			soma = soma - est.getsubTotal();
+		}
+		return soma;
+	}
+	
+	
 
 	public String getDescricao() {
 		return descricao;

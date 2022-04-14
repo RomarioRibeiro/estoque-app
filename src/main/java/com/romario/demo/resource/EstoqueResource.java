@@ -12,7 +12,9 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import com.romario.demo.domain.Estoque;
+import com.romario.demo.domain.Item_Estoque;
 import com.romario.demo.service.EstoqueService;
+import com.romario.demo.service.exeption.DatalIntegrityException;
 
 @RestController
 @RequestMapping(value = "/estoque")
@@ -35,11 +37,17 @@ public class EstoqueResource {
 		return ResponseEntity.created(uri).build();
 	}
 	
-	@RequestMapping(value = "/{id}", method = RequestMethod.PUT)
-	public ResponseEntity<Void> update( @RequestBody Estoque obj, @PathVariable Integer id) {
-		obj.setId(id);
-	obj = service.update(obj);
-	return ResponseEntity.noContent().build();
+	@RequestMapping(value = "/{quantidade}/{idproduto}", method = RequestMethod.PUT)
+	public ResponseEntity<?> subtrair( @PathVariable Integer quantidade, @PathVariable Integer idproduto) {
+	Item_Estoque itemestoque = service.subtrair(quantidade,idproduto );
+	
+	return ResponseEntity.ok(itemestoque);
+	}
+	
+	@RequestMapping(value = "somar/{quantidade}/{idproduto}", method = RequestMethod.PUT)
+	public ResponseEntity<?> somar( @PathVariable Integer quantidade, @PathVariable Integer idproduto) {
+	Item_Estoque itemestoque = service.somar(quantidade,idproduto );
+	return ResponseEntity.ok(itemestoque);
 	}
 	
 	@RequestMapping(value="/{id}" , method = RequestMethod.DELETE)

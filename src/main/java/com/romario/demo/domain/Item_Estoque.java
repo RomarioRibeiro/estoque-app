@@ -30,6 +30,10 @@ public class Item_Estoque implements Serializable {
 		id.setProduto(produto);
 		this.quantidade = quantidade;
 	}
+	
+	public double getsubTotal() {
+		return (quantidade - quantidade);
+	}
 
 	@JsonIgnore
 	public Estoque getEstoque() {

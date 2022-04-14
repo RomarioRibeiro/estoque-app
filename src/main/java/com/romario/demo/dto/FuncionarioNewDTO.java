@@ -3,6 +3,12 @@ package com.romario.demo.dto;
 import java.io.Serializable;
 import java.util.Date;
 
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotEmpty;
+
+import org.hibernate.validator.constraints.br.CPF;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.romario.demo.service.validation.FuncionarioInserte;
 
 @FuncionarioInserte
@@ -12,9 +18,15 @@ public class FuncionarioNewDTO implements Serializable{
 
 	
 	private String nome;
+	@CPF
 	private  String cpf;
+	
+	@NotEmpty(message="Preenchimento obrigatório")
+	@Email(message="Email Invalido")
 	private String email;
 	private String perfil;
+	
+	@JsonFormat(pattern = "dd/MM/yyyy HH:mm")
 	private Date dataDeNasc;
 	
 	public FuncionarioNewDTO() {

@@ -9,6 +9,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 @Entity
 public class Funcionario  implements Serializable{
 
@@ -21,6 +23,7 @@ public class Funcionario  implements Serializable{
 	private String perfil;
 	private  String cpf;
 	private String email;
+	@JsonFormat(pattern = "dd/MM/yyyy HH:mm")
 	private Date dataDeNasc;
 	
 	

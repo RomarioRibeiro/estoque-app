@@ -9,7 +9,7 @@ import javax.validation.Constraint;
 import javax.validation.Payload;
 
 
-@Constraint(validatedBy = FuncionarioInserteValidator.class)
+@Constraint(validatedBy = FuncionarioUpdateValidator.class)
 @Target({ ElementType.TYPE })
 @Retention(RetentionPolicy.RUNTIME)
 public @interface FuncionarioUpdate {

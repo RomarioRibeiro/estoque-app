@@ -24,20 +24,7 @@ import com.romario.demo.repositry.ProdutoRepository;
 @SpringBootApplication
 public class EstoqueApplication implements CommandLineRunner {
 
-	@Autowired
-	private CategoriaRepository categoriaRepository;
-	
-	@Autowired
-	private ProdutoRepository produtoRepository;
-	
-	@Autowired
-	private FuncionarioRepository funcionarioRepository;
-	
-	@Autowired
-	private EstoqueRepository estoqueRepository;
-	
-	@Autowired
-	private Item_EstoqueRepository itemestoquerepository;
+
 	
 	
 	
@@ -51,33 +38,11 @@ public class EstoqueApplication implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
-
-		Categoria cat = new Categoria(null, "Limpeza");
-		Produto prod = new Produto(null, "Omo");		
-		
-		categoriaRepository.saveAll(Arrays.asList(cat));
-		prod.setCategoria(cat);
-		produtoRepository.saveAll(Arrays.asList(prod));
-		
-		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm");
-		
-		Funcionario fun = new Funcionario(null, "Romario", "43003416804", "romaryjane@hotmail.com", sdf.parse("01/05/1997 22:03"),"Compra");
-		funcionarioRepository.saveAll(Arrays.asList(fun));
-		
-		
-		Estoque est = new Estoque(null, "Insumos");
-
-		
-		estoqueRepository.saveAll(Arrays.asList(est));
-		
-		Item_Estoque it1 = new Item_Estoque(est, prod, 12);
-		
-		
-		est.getItens().addAll(Arrays.asList(it1));
-		
-		itemestoquerepository.saveAll(Arrays.asList(it1));
+		// TODO Auto-generated method stub
 		
 	}
+
+
 	
 
 }

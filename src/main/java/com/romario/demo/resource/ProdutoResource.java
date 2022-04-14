@@ -2,6 +2,8 @@ package com.romario.demo.resource;
 
 import java.net.URI;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -12,6 +14,8 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import com.romario.demo.domain.Produto;
+import com.romario.demo.domain.Produto;
+import com.romario.demo.dto.ProdutoDTO;
 import com.romario.demo.service.ProdutoService;
 
 @RestController
@@ -36,9 +40,10 @@ public class ProdutoResource {
 	}
 	
 	@RequestMapping(value = "/{id}", method = RequestMethod.PUT)
-	public ResponseEntity<Void> update( @RequestBody Produto obj, @PathVariable Integer id) {
+	public ResponseEntity<Void> update(@Valid @RequestBody ProdutoDTO objDto, @PathVariable Integer id) {
+		Produto obj = service.fromDTO(objDto);
 		obj.setId(id);
-	obj = service.update(obj);
+	 obj = service.update(obj);
 	return ResponseEntity.noContent().build();
 	}
 	

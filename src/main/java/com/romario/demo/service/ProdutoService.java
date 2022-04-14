@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.romario.demo.domain.Estoque;
 import com.romario.demo.domain.Produto;
+import com.romario.demo.dto.ProdutoDTO;
 import com.romario.demo.repositry.EstoqueRepository;
 import com.romario.demo.repositry.ProdutoRepository;
 import com.romario.demo.service.exeption.DatalIntegrityException;
@@ -49,6 +50,17 @@ public class ProdutoService {
 		throw  new DatalIntegrityException("Não e possivel excluir uma categoria que possui produtos");
 		}
 	
+	}
+	
+
+	
+	private void updateData(Produto newobj ,Produto obj) {
+		newobj.setNome(obj.getNome());
+	
+	}
+	
+	public Produto fromDTO(ProdutoDTO objDto) {
+		return new  Produto(objDto.getId(), objDto.getNome());
 	}
 
 	

@@ -15,19 +15,19 @@ import com.romario.demo.dto.FuncionarioDTO;
 import com.romario.demo.repositry.FuncionarioRepository;
 import com.romario.demo.resource.exeption.FieldMessage;
 
-public class FuncionarioUpdateValidator implements ConstraintValidator<FuncionarioInserte, FuncionarioDTO> {
+public class FuncionarioUpdateValidator implements ConstraintValidator<FuncionarioUpdate, FuncionarioDTO> {
 	
 	@Autowired
 	private HttpServletRequest request; 
 	
-
 	@Autowired
 	private FuncionarioRepository repo;
 	
-	@Override
-	public void initialize(FuncionarioInserte ann) {
-	}
 	
+	@Override
+	public void initialize(FuncionarioUpdate ann) {
+	}
+
 	@Override
 	public boolean isValid(FuncionarioDTO objDto, ConstraintValidatorContext context) {
 		
@@ -35,11 +35,11 @@ public class FuncionarioUpdateValidator implements ConstraintValidator<Funcionar
 		Map<String , String> map = (Map<String , String>) request.getAttribute(HandlerMapping.URI_TEMPLATE_VARIABLES_ATTRIBUTE);
 		Integer uriID = Integer.parseInt(map.get("id"));
 		
-		
+		 
 		List<FieldMessage> list = new ArrayList<>();
-		
+
 		Funcionario aux = repo.findByEmail(objDto.getEmail());
-		if(aux != null  && !aux.getId().equals(uriID)) {
+		if(aux != null && !aux.getId().equals(uriID)) {
 			list.add(new FieldMessage("email", "Email já Existente"));
 		}
 		
@@ -50,8 +50,6 @@ public class FuncionarioUpdateValidator implements ConstraintValidator<Funcionar
 					.addConstraintViolation();
 		}
 		return list.isEmpty();
-	
-	
 	}
 
 }

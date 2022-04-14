@@ -1,6 +1,5 @@
 package com.romario.demo.service;
 
-import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 import java.util.Optional;
@@ -65,7 +64,16 @@ public class FuncionarioService {
 		return repo.findAll(pageRequest);
 	}
 
-	SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm");
+	public Funcionario fromDTO(FuncionarioDTO objDto) {
+		return new Funcionario(objDto.getId(), objDto.getNome(), objDto.getEmail(),null , null,objDto.getPerfil());
+	}
+	
+	private void updateData(Funcionario newobj ,Funcionario obj) {
+		newobj.setNome(obj.getNome());
+		newobj.setEmail(obj.getEmail());
+		newobj.setPerfil(obj.getPerfil());
+	}
+	
 	
 	public Funcionario fromDTO(FuncionarioNewDTO objDto) {
 		Funcionario cli = new Funcionario(null, objDto.getNome(), objDto.getEmail(), objDto.getCpf(),null,objDto.getPerfil() );
@@ -73,12 +81,4 @@ public class FuncionarioService {
 	return cli;
 	}
 	
-	private void updateData(Funcionario newobj ,Funcionario obj) {
-		newobj.setNome(obj.getNome());
-		newobj.setEmail(obj.getEmail());
-	}
-	
-	public Funcionario fromDTO(FuncionarioDTO objDto) {
-		return new  Funcionario(objDto.getId(), objDto.getNome(), objDto.getEmail(),null ,null, objDto.getPerfil());
-	}
 }

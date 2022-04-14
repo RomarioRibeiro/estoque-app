@@ -34,11 +34,12 @@ public class FuncionarioDTO implements Serializable {
 	
 	}
 
-	public FuncionarioDTO(Integer id, String nome, String email) {
+	public FuncionarioDTO(Integer id, String nome, String email,String perfil) {
 		super();
 		this.id = id;
 		this.nome = nome;
 		this.email = email;
+		this.perfil = perfil;
 	
 	}
 

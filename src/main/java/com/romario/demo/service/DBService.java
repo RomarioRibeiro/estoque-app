@@ -53,7 +53,7 @@ public class DBService {
 		Funcionario fun = new Funcionario(null, "Romario", "43003416804", "romaryjane@hotmail.com", sdf.parse("01/05/1997 22:03"),"Compra");
 		funcionarioRepository.saveAll(Arrays.asList(fun));
 		
-		
+		 
 		Estoque est = new Estoque(null, "Insumos");
 //<<<<<<< HEAD
 		Estoque est2 = new Estoque(null, "Limpeza");
@@ -62,13 +62,13 @@ public class DBService {
 		estoqueRepository.saveAll(Arrays.asList(est,est2));
 		
 		Item_Estoque it1 = new Item_Estoque(est, prod, 12);
-		Item_Estoque it2 = new Item_Estoque(est2, prod, 12);
+	//	Item_Estoque it2 = new Item_Estoque(est2, prod, 12);
 		
 		
 		est.getItens().addAll(Arrays.asList(it1));
-		est2.getItens().addAll(Arrays.asList(it2));
+	//	est2.getItens().addAll(Arrays.asList(it2));
 		
-		itemestoquerepository.saveAll(Arrays.asList(it1,it2));
+		itemestoquerepository.saveAll(Arrays.asList(it1));
 //=======
 
 		
