@@ -65,7 +65,7 @@ public class FuncionarioService {
 	}
 
 	public Funcionario fromDTO(FuncionarioDTO objDto) {
-		return new Funcionario(objDto.getId(), objDto.getNome(), objDto.getEmail(),null , null,objDto.getPerfil());
+		return new Funcionario(objDto.getId(), objDto.getNome(),null ,objDto.getEmail(), null,objDto.getPerfil());
 	}
 	
 	private void updateData(Funcionario newobj ,Funcionario obj) {
@@ -76,7 +76,7 @@ public class FuncionarioService {
 	
 	
 	public Funcionario fromDTO(FuncionarioNewDTO objDto) {
-		Funcionario cli = new Funcionario(null, objDto.getNome(), objDto.getEmail(), objDto.getCpf(),null,objDto.getPerfil() );
+		Funcionario cli = new Funcionario(null, objDto.getNome(),objDto.getCpf(),objDto.getEmail(),null,objDto.getPerfil() );
 	
 	return cli;
 	}

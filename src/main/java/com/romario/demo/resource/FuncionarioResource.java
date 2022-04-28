@@ -46,7 +46,9 @@ public class FuncionarioResource {
 	
 	@RequestMapping(value = "/{id}", method = RequestMethod.PUT)
 	public ResponseEntity<Void> update(@Valid @RequestBody FuncionarioDTO objDto, @PathVariable Integer id) {
+		System.out.println(objDto.getEmail());
 		Funcionario obj = service.fromDTO(objDto);
+		
 		obj.setId(id);
 	 obj = service.update(obj);
 	return ResponseEntity.noContent().build();

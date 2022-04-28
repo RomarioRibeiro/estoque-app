@@ -44,10 +44,12 @@ public class EstoqueService {
 		itensestoqueproduto.setQuantidade(itensestoqueproduto.getQuantidade() - quanRetirado);
 		if(itensestoqueproduto.getQuantidade() <= 0 ) {
 			return (Item_Estoque) ResponseEntity.badRequest();
+		}else {
+			
+			return itens.save(itensestoqueproduto);
 		}
 		
 		
-		return itens.save(itensestoqueproduto);
 	}
 	
 	public Item_Estoque somar (Integer quansomar, int idproduto) {

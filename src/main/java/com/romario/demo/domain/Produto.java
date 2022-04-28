@@ -24,9 +24,6 @@ public class Produto implements Serializable {
 	private Categoria categoria;
 	
 
-
-	
-	
 	public Categoria getCategoria() {
 		return categoria;
 	}
