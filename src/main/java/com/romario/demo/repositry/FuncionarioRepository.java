@@ -16,8 +16,10 @@ import com.romario.demo.domain.Funcionario;
 public interface FuncionarioRepository extends JpaRepository <Funcionario , Integer>  {
 	@Query(value="select * from funcionario where id = ?",nativeQuery = true )
 	Funcionario find(Integer id);
+	
 	@Transactional(readOnly = true)
 	Funcionario findByEmail (String email);
 	@Query(value="select * from funcionario where perfil = \"Compra\"",nativeQuery = true )
 	List<Funcionario> findAllCompras();
+
 }

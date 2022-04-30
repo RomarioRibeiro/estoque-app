@@ -2,15 +2,17 @@ package com.romario.demo.service;
 
 import org.springframework.mail.SimpleMailMessage;
 
-import com.romario.demo.domain.Estoque;
+import com.romario.demo.domain.Funcionario;
 
 
 public interface EmailService {
 	
-void sendOrderConfirmationEmail(Estoque obj);
+void sendOrderConfirmationEmail(Funcionario obj);
 	
 	void sendEmail(SimpleMailMessage msg);
 	
-	void sendNewPasswordEmail(Estoque estoque, String newPass);
+	void sendNewPasswordEmail(Funcionario estoque, String newPass);
+
+	
 
 }

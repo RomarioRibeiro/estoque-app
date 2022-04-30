@@ -4,7 +4,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.mail.SimpleMailMessage;
 
-import com.romario.demo.domain.Estoque;
+import com.romario.demo.domain.Funcionario;
 
 public class MockEmailService extends  AbstractEmailService {
 
@@ -19,9 +19,17 @@ public class MockEmailService extends  AbstractEmailService {
 	}
 
 	@Override
-	public void sendNewPasswordEmail(Estoque estoque, String newPass) {
+	public void sendOrderConfirmationEmail(Funcionario obj) {
 		// TODO Auto-generated method stub
 		
 	}
+
+	@Override
+	public void sendNewPasswordEmail(Funcionario estoque, String newPass) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
 
 }
