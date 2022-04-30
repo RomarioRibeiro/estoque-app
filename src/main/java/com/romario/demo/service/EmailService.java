@@ -11,6 +11,6 @@ void sendOrderConfirmationEmail(Estoque obj);
 	
 	void sendEmail(SimpleMailMessage msg);
 	
-	void sendNewPasswordEmail(Estoque estoque, String newPass);
+	//void sendNewPasswordEmail(Estoque estoque, String newPass);
 
 }
