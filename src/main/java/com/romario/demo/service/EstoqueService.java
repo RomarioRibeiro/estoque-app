@@ -52,7 +52,7 @@ public class EstoqueService {
 		if (itensestoqueproduto.getQuantidade() <= 5) {
 			List<Funcionario> funcionarios = funcionarioRepository.findAllCompras();
 			for (Funcionario f : funcionarios) {
-				emailService.sendEmail(f);
+				System.out.println(f);
 			}
 
 		} else if(itensestoqueproduto.getQuantidade() < 0) {

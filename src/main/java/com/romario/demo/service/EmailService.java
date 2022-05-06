@@ -9,7 +9,7 @@ public interface EmailService {
 	
 void sendOrderConfirmationEmail(Funcionario obj);
 	
-	void sendEmail(SimpleMailMessage msg);
+	void sendEmail(SimpleMailMessage sm);
 	
 	void sendNewPasswordEmail(Funcionario estoque, String newPass);
 

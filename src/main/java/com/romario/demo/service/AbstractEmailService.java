@@ -8,7 +8,6 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.scheduling.annotation.Async;
 
-import com.romario.demo.domain.Estoque;
 import com.romario.demo.domain.Funcionario;
 import com.romario.demo.repositry.FuncionarioRepository;
 
@@ -20,12 +19,12 @@ public abstract class AbstractEmailService implements EmailService {
 	@Value("${default.sender}")
 	private String sander;
 	
-	public void sendOrderConfirmationEmail(Estoque obj) {
-		SimpleMailMessage sm = prepareSimpleMailMessageFromEstoque(obj);
+	public void sendOrderConfirmationEmail(Funcionario obj) {
+		SimpleMailMessage sm = prepareSimpleMailMessageFromFuncionario(obj);
 		sendEmail(sm);
 	}
    @Async
-	private SimpleMailMessage prepareSimpleMailMessageFromEstoque(Estoque obj) {
+	private SimpleMailMessage prepareSimpleMailMessageFromFuncionario(Funcionario obj) {
 		SimpleMailMessage sm = new SimpleMailMessage();
 		List<Funcionario> funs = funcionarioRepository.findAllCompras();
 		for(Funcionario f:funs) {

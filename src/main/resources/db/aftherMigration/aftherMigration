@@ -1,0 +1,32 @@
+set foreign_key_checks = 0;
+SET SQL_SAFE_UPDATES=0;
+
+delete from categoria;
+delete from produto;
+delete from funcionario;
+delete from estoque;
+delete from item_estoque;
+
+set foreign_key_checks = 1;
+
+alter table categoria auto_increment = 1;
+alter table produto auto_increment = 1;
+alter table item_estoque auto_increment = 1;
+alter table estoque auto_increment = 1;
+alter table funcionario auto_increment = 1;
+
+
+INSERT INTO categoria (id ,nome) VALUES
+('1' , 	'Limpeza' );
+
+INSERT INTO produto (id, nome, categoria_id) VALUES
+('1', 'Omo', '1');
+
+INSERT INTO funcionario (id, cpf, data_de_nasc, email, nome, perfil) VALUES
+('1', '88971733063', '1997-05-01', 'romario@gmail.com', 'romario ribeiro', 'Compras');
+
+INSERT INTO estoque (id, descricao) VALUES
+('1', 'bloco-limpeza');
+
+INSERT INTO item_estoque (quantidade, produto_id, estoque_id) VALUES
+('1', '1', '1');

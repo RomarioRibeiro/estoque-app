@@ -19,14 +19,14 @@ import com.romario.demo.service.MockEmailService;
 @Profile("test")
 public class TestConfig {
 
-	@Autowired
-	private DBService dbService;
+	//@Autowired
+	//private DBService dbService;
 	
-	@Bean
-	public boolean instatiateDatabase( ) throws ParseException {
-	dbService.instantiateTestDatabase();
-	return true;	
-	}
+	//@Bean
+	//public boolean instatiateDatabase( ) throws ParseException {
+	//dbService.instantiateTestDatabase();
+	//return true;	
+	//}
 	
 //<<<<<<< HEAD
 	@Bean

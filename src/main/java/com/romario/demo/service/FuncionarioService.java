@@ -23,12 +23,16 @@ public class FuncionarioService {
 	@Autowired
 	private FuncionarioRepository repo;
 	
+	@Autowired
+	private EmailService emailService;
+	
 	public Funcionario find(Integer id) {
 		Optional<Funcionario> obj = repo.findById(id);
 		return obj.orElseThrow(() -> new ObjectNotFoundException("Objeto não encontrado! Id: " + id + ",Tipo: " + Funcionario.class.getName() ));
 	}
 	
 	public Funcionario inserir (Funcionario obj) {
+		
 		obj.setId(null);
 		obj.setDataDeNasc(new Date(System.currentTimeMillis()));
 		
