@@ -11,8 +11,12 @@ void sendOrderConfirmationEmail(Funcionario obj);
 	
 	void sendEmail(SimpleMailMessage sm);
 	
+<<<<<<< HEAD
+	//void sendNewPasswordEmail(Estoque estoque, String newPass);
+=======
 	void sendNewPasswordEmail(Funcionario estoque, String newPass);
 
 	
+>>>>>>> 08f1a1ab1c1ee5f8e4739949ec1d17d3737b84b9
 
 }
